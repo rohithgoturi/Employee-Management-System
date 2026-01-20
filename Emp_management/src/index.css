@@ -14,4 +14,11 @@ body{
   scrollbar-width: none;
 }
 
+#all-tasks::-webkit-scrollbar {
+  width: 0px;
+}
+
+#all-tasks {
+  scrollbar-width: none;
+}
 
