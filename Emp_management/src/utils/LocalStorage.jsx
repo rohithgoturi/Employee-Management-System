@@ -1,8 +1,16 @@
+// localStorage.clear();
 const employees = [
   {
     id: 1,
+    name: "Ravi",
     email: "employee1@gmail.com",
     password: "123",
+
+    activeCount: 1,
+    newTaskCount: 1,
+    completedCount: 1,
+    failedCount: 1,
+
     tasks: [
       {
         active: true,
@@ -39,8 +47,15 @@ const employees = [
 
   {
     id: 2,
+    name: "Arjun",
     email: "employee2@gmail.com",
     password: "123",
+
+    activeCount: 1,
+    newTaskCount: 1,
+    completedCount: 1,
+    failedCount: 1,
+
     tasks: [
       {
         active: true,
@@ -77,8 +92,15 @@ const employees = [
 
   {
     id: 3,
+    name: "Suresh",
     email: "employee3@gmail.com",
     password: "123",
+
+    activeCount: 1,
+    newTaskCount: 1,
+    completedCount: 1,
+    failedCount: 1,
+
     tasks: [
       {
         active: true,
@@ -115,8 +137,15 @@ const employees = [
 
   {
     id: 4,
+    name: "Mahesh",
     email: "employee4@gmail.com",
     password: "123",
+
+    activeCount: 1,
+    newTaskCount: 1,
+    completedCount: 1,
+    failedCount: 1,
+
     tasks: [
       {
         active: true,
@@ -153,8 +182,15 @@ const employees = [
 
   {
     id: 5,
+    name: "Kiran",
     email: "employee5@gmail.com",
     password: "123",
+
+    activeCount: 1,
+    newTaskCount: 1,
+    completedCount: 1,
+    failedCount: 1,
+
     tasks: [
       {
         active: true,
@@ -190,14 +226,15 @@ const employees = [
   }
 ];
 
-
 const admin = [
   {
     id: 101,
+    name: "Admin",
     email: "admin@gmail.com",
     password: "123"
   }
 ];
+
 
 
 export const setLocalStorage = () => {
@@ -209,5 +246,5 @@ export const getLocalStorage = () => {
     const employees = JSON.parse(localStorage.getItem('employees'))
     const admin = JSON.parse(localStorage.getItem('admin'))
 
-    console.log(employees, admin);
+    return { employees, admin };
 }
