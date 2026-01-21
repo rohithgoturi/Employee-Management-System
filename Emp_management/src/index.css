@@ -14,11 +14,13 @@ body{
   scrollbar-width: none;
 }
 
-#all-tasks::-webkit-scrollbar {
-  width: 0px;
+/* Hide scrollbar but allow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
-#all-tasks {
-  scrollbar-width: none;
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;     /* Firefox */
 }
 
