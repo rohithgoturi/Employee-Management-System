@@ -1,84 +1,33 @@
 import React from "react";
+import AcceptTask from "./AcceptTask";
+import CompletedTask from "./CompletedTask";
+import NewTask from "./NewTask";
+import FailedTask from "./FailedTask";
 
-const TaskList = () => {
+const TaskList = ({data}) => {
   return (
     <div className="h-screen px-10 flex flex-col">
       <div
         id="tasklist"
         className="mt-10 h-[45%] w-full rounded-3xl flex gap-5 flex-nowrap overflow-x-auto overflow-y-hidden py-5"
       >
-        <div className="h-full w-[300px] shrink-0 bg-blue-500 rounded-xl" >
-          <div className=" flex justify-between items-center">
-            <h3 className="bg-red-600 px-3 py-1 ml-1 mt-1 rounded-xl">High</h3>
-            <h4 className=" text-sm mr-1 font-medium">19 January 2026</h4>
-          </div>
-          <div className="flex flex-col px-2 mt-5 gap-3">
-            <h2 className=" text-xl font-bold">POST A REEL</h2>
-            <p className=" text-lg font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, qui!</p>
-          </div>
-        </div>
+        {data.tasks.map((elem,idx)=>{
+          if(elem.active) {
+            return <AcceptTask key={idx} task={elem} />
+          }
 
-        <div className="h-full w-[300px] shrink-0 bg-green-500 rounded-xl" >
-          <div className=" flex justify-between items-center">
-            <h3 className="bg-red-600 px-3 py-1 ml-1 mt-1 rounded-xl">High</h3>
-            <h4 className=" text-sm mr-1 font-medium">19 January 2026</h4>
-          </div>
-          <div className="flex flex-col px-2 mt-5 gap-3">
-            <h2 className=" text-xl font-bold">POST A REEL</h2>
-            <p className=" text-lg font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, qui!</p>
-          </div>
-        </div>
+          if(elem.newTask){
+            return <NewTask key={idx} task={elem} />
+          }
 
+          if(elem.completedTask){
+            return <CompletedTask key={idx} task={elem} />
+          }
 
-        <div className="h-full w-[300px] shrink-0 bg-yellow-500 rounded-xl" >
-          <div className=" flex justify-between items-center">
-            <h3 className="bg-red-600 px-3 py-1 ml-1 mt-1 rounded-xl">High</h3>
-            <h4 className=" text-sm mr-1 font-medium">19 January 2026</h4>
-          </div>
-          <div className="flex flex-col px-2 mt-5 gap-3">
-            <h2 className=" text-xl font-bold">POST A REEL</h2>
-            <p className=" text-lg font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, qui!</p>
-          </div>
-        </div>
-
-
-        <div className="h-full w-[300px] shrink-0 bg-blue-500 rounded-xl" >
-          <div className=" flex justify-between items-center">
-            <h3 className="bg-red-600 px-3 py-1 ml-1 mt-1 rounded-xl">High</h3>
-            <h4 className=" text-sm mr-1 font-medium">19 January 2026</h4>
-          </div>
-          <div className="flex flex-col px-2 mt-5 gap-3">
-            <h2 className=" text-xl font-bold">POST A REEL</h2>
-            <p className=" text-lg font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, qui!</p>
-          </div>
-        </div>
-
-
-        <div className="h-full w-[300px] shrink-0 bg-green-500 rounded-xl" >
-          <div className=" flex justify-between items-center">
-            <h3 className="bg-red-600 px-3 py-1 ml-1 mt-1 rounded-xl">High</h3>
-            <h4 className=" text-sm mr-1 font-medium">19 January 2026</h4>
-          </div>
-          <div className="flex flex-col px-2 mt-5 gap-3">
-            <h2 className=" text-xl font-bold">POST A REEL</h2>
-            <p className=" text-lg font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, qui!</p>
-          </div>
-        </div>
-
-
-        <div className="h-full w-[300px] shrink-0 bg-yellow-500 rounded-xl" >
-          <div className=" flex justify-between items-center">
-            <h3 className="bg-red-600 px-3 py-1 ml-1 mt-1 rounded-xl">High</h3>
-            <h4 className=" text-sm mr-1 font-medium">19 January 2026</h4>
-          </div>
-          <div className="flex flex-col px-2 mt-5 gap-3">
-            <h2 className=" text-xl font-bold">POST A REEL</h2>
-            <p className=" text-lg font-medium">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, qui!</p>
-          </div>
-        </div>
-
-        
-      
+          if(elem.failed){
+            return <FailedTask key={idx} task={elem} />
+          }
+        })}
       </div>
     </div>
   );

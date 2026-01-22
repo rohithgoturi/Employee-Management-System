@@ -5,7 +5,8 @@ import TaskList from '../Tasks/TaskList'
 
 
 const EmployeeDashboard = ({ data }) => {
-  console.log(data)
+  if(!data) return null;
+
   return (
     <div>
         <Header data={data}/>
