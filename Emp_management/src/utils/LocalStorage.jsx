@@ -6,10 +6,12 @@ const employees = [
     email: "employee1@gmail.com",
     password: "123",
 
-    activeCount: 1,
+    taskcount : {
+      activeCount: 2,
     newTaskCount: 1,
     completedCount: 1,
     failedCount: 1,
+    },
 
     tasks: [
       {
@@ -51,10 +53,12 @@ const employees = [
     email: "employee2@gmail.com",
     password: "123",
 
-    activeCount: 1,
+    taskcount : {
+      activeCount: 2,
     newTaskCount: 1,
     completedCount: 1,
     failedCount: 1,
+    },
 
     tasks: [
       {
@@ -96,11 +100,12 @@ const employees = [
     email: "employee3@gmail.com",
     password: "123",
 
-    activeCount: 1,
+    taskcount : {
+      activeCount: 2,
     newTaskCount: 1,
     completedCount: 1,
     failedCount: 1,
-
+    },
     tasks: [
       {
         active: true,
@@ -141,10 +146,12 @@ const employees = [
     email: "employee4@gmail.com",
     password: "123",
 
-    activeCount: 1,
+    taskcount : {
+      activeCount: 2,
     newTaskCount: 1,
     completedCount: 1,
     failedCount: 1,
+    },
 
     tasks: [
       {
@@ -186,11 +193,12 @@ const employees = [
     email: "employee5@gmail.com",
     password: "123",
 
-    activeCount: 1,
+    taskcount : {
+      activeCount: 2,
     newTaskCount: 1,
     completedCount: 1,
     failedCount: 1,
-
+    },
     tasks: [
       {
         active: true,

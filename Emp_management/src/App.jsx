@@ -5,11 +5,10 @@ import AdminDashboard from "./components/Dashboard/AdminDashboard";
 import { AuthContext } from "./context/AuthProvider";
 
 const App = () => {
-  const { employees } = useContext(AuthContext) || {};
+  const [userData, setUserData] = useContext(AuthContext) || {};
   const [user, setUser] = useState(null);
   const [loggedInUserData, setLoggedInUserData] = useState(null);
 
-  // 🔥 Restore login after refresh
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
     if (storedUser) {
@@ -27,12 +26,12 @@ const App = () => {
         "loggedInUser",
         JSON.stringify({ role: "admin" })
       );
-      return;
+      return; 
     }
 
     // EMPLOYEE
-    if (employees) {
-      const employee = employees.find(
+    if (userData) {
+      const employee = userData.find(
         (e) => e.email === email && e.password === password
       );
 
@@ -44,7 +43,7 @@ const App = () => {
           "loggedInUser",
           JSON.stringify({ role: "employee", data: employee })
         );
-        return;
+        return; 
       }
     }
 
@@ -55,10 +54,10 @@ const App = () => {
     <>
       {!user && <Login LoginHandler={LoginHandler} />}
 
-      {user === "admin" && <AdminDashboard />}
+      {user === "admin" && <AdminDashboard changeUser={setUser} />}
 
       {user === "employee" && loggedInUserData && (
-        <EmployeeDashboard data={loggedInUserData} />
+        <EmployeeDashboard changeUser={setUser} data={loggedInUserData} />
       )}
     </>
   );

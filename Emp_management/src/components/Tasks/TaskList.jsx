@@ -17,10 +17,10 @@ const TaskList = ({data}) => {
           }
 
           if(elem.newTask){
-            return <NewTask key={idx} task={elem} />
+            return <NewTask key={idx} task={elem}  />
           }
 
-          if(elem.completedTask){
+          if(elem.completed){
             return <CompletedTask key={idx} task={elem} />
           }
 
